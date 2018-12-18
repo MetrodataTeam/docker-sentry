@@ -81,6 +81,9 @@ ENV SENTRY_CONF=/etc/sentry \
 
 RUN mkdir -p $SENTRY_CONF && mkdir -p $SENTRY_FILESTORE_DIR
 
+# Support for Gitlab sso
+RUN pip install sentry-auth-gitlab
+
 COPY sentry.conf.py /etc/sentry/
 COPY config.yml /etc/sentry/
 
